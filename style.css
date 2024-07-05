@@ -1,0 +1,257 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(124, 39, 39); /* Black background */
+  color: #E94B3CFF; /* Cherry Tomato text */
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  max-width: 600px;
+  background-color: #2D2926FF; /* Black container background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  text-align: center;
+}
+
+header h1 {
+  font-size: 3em;
+  color: #E94B3CFF; /* Cherry Tomato */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Slight shadow */
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+header h5 {
+  font-size: 0.7em;
+  color: #E94B3CFF; /* Cherry Tomato */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Slight shadow */
+  margin: 0;
+  position: relative;
+  animation: glow 2s infinite alternate;
+  text-align: center; /* Center horizontally */
+}
+
+.scoreboard header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scoreboard h5 {
+  font-size: 0.7em;
+  color: #E94B3CFF; /* Cherry Tomato */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Slight shadow */
+  margin: 0px;
+  position: relative;
+  animation: glow 2s infinite alternate;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  background-color: #2D2926FF; /* Black background */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.scoreboard div {
+  color: #E94B3CFF; /* Cherry Tomato text */
+  font-size: 1.2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px;
+}
+
+.mode-select {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.mode-select label {
+  display: block;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #E94B3CFF; /* Cherry Tomato */
+}
+
+.mode-select select {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #E94B3CFF; /* Cherry Tomato background */
+  border: none;
+  color: #2D2926FF; /* Black text */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 5px;
+}
+
+.mode-select select:hover {
+  background-color: #D43B2CFF; /* Darker Cherry Tomato on hover */
+}
+
+.mode-select select:focus {
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .mode-select select {
+    width: 100%;
+  }
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: #2D2926FF; /* Black cells */
+  border: 2px solid #E94B3CFF; /* Cherry Tomato border */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+  position: relative; /* Added for pseudo-element */
+}
+
+.cell:hover {
+  background-color: #D43B2CFF; /* Darker Cherry Tomato on hover */
+  transform: scale(1.1); /* Scale up on hover */
+}
+
+.cell::before {
+  content: ''; /* Pseudo-element for animation */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.1); /* Transparent white */
+  z-index: -1;
+  transition: opacity 0.3s ease-in-out; /* Opacity transition */
+}
+
+.cell:hover::before {
+  opacity: 1; /* Show on hover */
+}
+
+.status {
+  background-color: rgba(0, 0, 0, 0.1);
+  text-transform: capitalize;
+  font-size: 2em;
+  color: #E94B3CFF; /* Cherry Tomato */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Slight shadow */
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+  animation: slideIn 0.5s ease-in-out;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 20px;
+  margin-top: 25px;
+  margin-left: 5px;
+  justify-content: space-between;
+  font-size: 1em;
+  background-color: #E94B3CFF; /* Cherry Tomato background */
+  border: 2px solid #D43B2CFF; /* Darker Cherry Tomato border */
+  color: #2D2926FF; /* Black text */
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+  margin-right: 10px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  outline: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #D43B2CFF; /* Darker Cherry Tomato on hover */
+  border-color: #D43B2CFF; /* Darker Cherry Tomato border on hover */
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.dark-theme {
+  background-color: #2D2926FF; /* Black background */
+  color: #E94B3CFF; /* Cherry Tomato text */
+}
+
+.light-theme {
+  background-color: #ffffff; /* White background */
+  color: #2D2926FF; /* Black text */
+}
+
+.win {
+  background-color: #E94B3CFF !important; /* Cherry Tomato win background */
+}
+
+@media (max-width: 600px) {
+  .board {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Light Theme Styles */
+body.light-theme {
+  background-color: #ffffff; /* White background */
+  color: #2D2926FF; /* Black text */
+}
+
+body.light-theme .cell {
+  background-color: #ffffff; /* White cells */
+  border: 2px solid #ccc; /* Light gray border */
+}
+
+body.light-theme .cell:hover {
+  background-color: #f0f0f0; /* Light gray on hover */
+}
+
+body.light-theme button {
+  background-color: #E94B3CFF; /* Cherry Tomato button */
+  color: #2D2926FF; /* Black text */
+}
+
+/* Dark Theme Styles */
+body.dark-theme {
+  background-color: #2D2926FF; /* Black background */
+  color: #E94B3CFF; /* Cherry Tomato text */
+}
+
+body.dark-theme .cell {
+  background-color: #2D2926FF; /* Black cells */
+  border: 2px solid #E94B3CFF; /* Cherry Tomato border */
+}
+
+body.dark-theme .cell:hover {
+  background-color: #D43B2CFF; /* Darker Cherry Tomato on hover */
+}
+
+body.dark-theme button {
+  background-color: #E94B3CFF; /* Cherry Tomato button */
+  color: #2D2926FF; /* Black text */
+}
